@@ -13,4 +13,10 @@ class User extends Model
     protected $fillable = ['name', 'email', 'password'];
 
     protected $hidden = ['password', 'remember_token'];
+
+    public function gravatar($size = '128')
+    {
+        $rand = $this->id % 10;
+        return "https://adminlte.io/themes/AdminLTE/dist/img/user{$rand}-{$size}x{$size}.jpg";
+    }
 }
